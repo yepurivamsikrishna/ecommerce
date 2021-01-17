@@ -1,0 +1,152 @@
+{
+	"info": {
+		"_postman_id": "c0223af3-e469-466e-a640-20cd7f2eb199",
+		"name": "Ecom",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Order",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"customerId\" : \"C001\",\r\n    \"productsList\" : [\r\n        {\r\n           \"productId\" : \"P001\",\r\n           \"quantity\"  : 2\r\n        },\r\n        {\r\n           \"productId\" : \"P002\",\r\n           \"quantity\"  : 3\r\n        }\r\n    ] \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/order/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"order",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cancel Order",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"orderId\" : \"397e6f56-0404-483a-b38b-4ca2a585610b\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/order/cancel",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"order",
+						"cancel"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Order Detials",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/order/get?orderId=397e6f56-0404-483a-b38b-4ca2a585610b",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"order",
+						"get"
+					],
+					"query": [
+						{
+							"key": "orderId",
+							"value": "397e6f56-0404-483a-b38b-4ca2a585610b"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deliver Order",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"orderId\" : \"397e6f56-0404-483a-b38b-4ca2a585610b\",\r\n    \"orderBillingAddressId\" : \"A002\",\r\n    \"orderShippingAddressId\" : \"A001\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/order/deliver",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"order",
+						"deliver"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pay Order",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"orderId\" : \"397e6f56-0404-483a-b38b-4ca2a585610b\",\r\n    \"payment\" : {\r\n                \"paymentConfirmationNo\" : \"1234567890987654321\",\r\n                \"getPaymentMethod\" : \"Card\"\r\n                }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/order/payment",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"order",
+						"payment"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
